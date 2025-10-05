@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Private Meeting Request • Info Managements</title>
+<link href="https://infomanagements.org/private-meeting" rel="canonical"/>
+<meta content="Private Meeting Request • Info Managements" property="og:title"/>
+<meta content="Confidential, caring, and professional. We review every application with empathy." property="og:description"/>
+<link href="/assets/theme.css" rel="stylesheet"/>
+<link href="/assets/ui-touchups.css" rel="stylesheet"/><meta content="summary_large_image" name="twitter:card"/></head>
+<body>
+<header style="text-align:center; padding:20px 16px;">
+<img alt="Info Managements" onerror="this.src='/assets/logo.svg';" src="/assets/logo.png" style="height:80px; border-radius:8px;"/>
+<a class="nav-link" href="/#charity">Charity</a></header>
+<section class="hero-section">
+<h1>Private Meeting Request</h1>
+<p>We treat every message with privacy and care. Please share a few details below and our team will respond.</p>
+</section>
+<section class="section">
+<div class="contact-panel">
+<form data-netlify="true" data-netlify-honeypot="bot-field" method="POST" name="private-meeting">
+<input name="form-name" type="hidden" value="private-meeting"/>
+<p class="hidden" style="display:none;"><label>Don’t fill this out: <input name="bot-field"/></label></p>
+<p><label>Full Name<br/><input name="name" required="" type="text"/></label></p>
+<p><label>Email<br/><input name="email" required="" type="email"/></label></p>
+<p><label>Preferred Date / Time (optional)<br/><input name="preferred_time" type="text"/></label></p>
+<p><label>Message<br/><textarea name="message" required="" rows="6"></textarea></label></p>
+<p><button type="submit">Request Meeting</button></p>
+<p class="small">All applications are reviewed individually. Communication happens through our official channels and remains confidential.</p>
+</form>
+<div id="thankyou-message" style="display:none; text-align:center; margin-top:20px;">
+<h3 style="color:#ffd45a;">💛 Thank you for reaching out!</h3>
+<p>We’ve received your message. Our team will respond with care.</p>
+</div>
+<script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const form = document.querySelector("form[data-netlify='true']");
+        if (form) {
+          form.addEventListener("submit", function(e) {
+            e.preventDefault();
+            const data = new FormData(form);
+            fetch("/", { method: "POST", body: data })
+              .then(() => { form.style.display = "none"; document.getElementById("thankyou-message").style.display = "block"; window.scrollTo({ top: 0, behavior: "smooth" }); })
+              .catch(() => alert("There was an issue sending your message. Please try again."));
+          });
+        }
+      });
+      </script>
+</div>
+</section>
+<div class="safety-banner safety-banner--info" data-safety-banner="" style="background: linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,.85));">
+<strong>Safety notice:</strong>
+<div class="safety-banner__text">
+    We keep all coordination strictly on official channels. If you receive unusual payment or verification requests, contact us directly.
+  </div>
+<a class="button safety-banner__btn" data-body="Please include screenshots, usernames, and a brief summary." data-mailto="fraud@infomanagements.org" data-subject="Report a suspicious message">Report Issue</a>
+<button aria-label="Dismiss safety notice" class="button" data-close-safety="">Close</button>
+</div>
+<section class="footer-disclaimer">
+<strong>Disclaimer &amp; Safety:</strong>
+  This site provides information and bookings coordination only. Financial transactions occur through approved, official methods shared by our team.
+  If anything feels off, email <a href="mailto:fraud@infomanagements.org">fraud@infomanagements.org</a> and copy <a href="mailto:privacy@infomanagements.org">privacy@infomanagements.org</a>.
+  Use of this site implies agreement with our <a href="/privacy.html">Privacy Policy</a> and <a href="/fraud.html">Safety Guidance</a>.
+</section>
+<script defer="True" src="/assets/site-enhancements.js"></script><footer><a href="/charity.html">Charity &amp; Community</a></footer></body>
+</html>

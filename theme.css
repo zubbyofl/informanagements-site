@@ -1,0 +1,197 @@
+
+/* Info Managements • Dark Navy + Gold Theme (Accessible) */
+:root{
+  --bg1:#0b1220;
+  --bg2:#101b34;
+  --surface:#0f1a33;
+  --surface-2:#122040;
+  --border:#1d2a4a;
+  --text:#e6ecff;
+  --text-muted:#b9c6ff;
+  --heading:#d7e6ff;
+  --accent:#ffb800;
+  --accent-2:#ffd45a;
+  --link:#ffb800;
+  --navy:#002855;
+}
+
+/* Subtle noise/texture overlay using SVG data URI */
+body{
+  background: radial-gradient(1200px 600px at 50% -10%, rgba(255,255,255,0.05), transparent 60%),
+              linear-gradient(180deg, var(--bg1), var(--bg2));
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Global text + headings */
+h1,h2,h3,h4,h5,h6{ color: var(--heading) !important; }
+p,li,small,span{ color: var(--text); }
+a{ color: var(--link); text-decoration: none; }
+a:hover{ text-decoration: underline; color: var(--accent-2); }
+
+/* Header / Nav */
+header[style*="position:sticky"], header nav, header { background: rgba(16,27,52,.85) !important; backdrop-filter: blur(6px); }
+header nav a{ color: var(--text) !important; }
+header nav a:hover{ color: var(--accent-2) !important; }
+header .cta-button{ background: var(--accent); color: #0b1220; }
+
+/* Hero */
+.hero-section{ background: linear-gradient(90deg, #0c1a36, #132650) !important; color:#fff; }
+.hero-section p{ color:#eef3ff !important; }
+
+/* Sections / Cards */
+.section{ background: transparent !important; }
+.trust-grid{ gap:22px; }
+.trust-card{ 
+  background: var(--surface) !important; 
+  border: 1px solid var(--border) !important; 
+  color: var(--text) !important; 
+  box-shadow: 0 10px 30px rgba(0,0,0,.25) !important;
+}
+.testimonial{
+  background: var(--surface-2) !important;
+  border-left: 6px solid var(--accent) !important;
+  color: var(--text) !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,.22) !important;
+}
+
+/* Contact panel & Thank-you */
+.contact-panel{ 
+  background: var(--surface) !important; 
+  border: 1px solid var(--border) !important;
+  color: var(--text) !important;
+}
+#thankyou-message h3{ color: var(--accent-2) !important; }
+
+/* Forms */
+form input, form textarea{
+  background: #0b1631 !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+}
+form input::placeholder, form textarea::placeholder{ color: #9db0e6 !important; }
+form button{ background: var(--accent) !important; color: #0b1220 !important; border:none !important; }
+form button:hover{ filter: brightness(1.05); }
+
+/* Footer-like small text */
+.small{ color: var(--text-muted) !important; }
+
+/* Cards / blocks that previously forced white */
+[style*="background:white"], [style*="background: white"]{
+  background: var(--surface) !important;
+  color: var(--text) !important;
+}
+
+/* WhatsApp FAB ring for visibility on dark */
+a[aria-label="Chat on WhatsApp"]{ box-shadow: 0 10px 24px rgba(0,0,0,.4) !important; }
+
+/* Table/List readability */
+ul,ol{ color: var(--text) }
+li{ margin: .35em 0; }
+
+/* Ensure 404 looks themed */
+body:has(title:contains("404")) .section,
+body:has(title:contains("404")){ background: linear-gradient(180deg, var(--bg1), var(--bg2)); }
+
+
+/* --- PERFECT EDITION ENHANCEMENTS --- */
+
+/* Gold glow & animated pulse for CTAs */
+.cta-button, .contact-panel button, form button {
+  animation: pulseGlow 3s infinite ease-in-out;
+  border-radius: 6px;
+  box-shadow: 0 0 12px rgba(255,184,0,.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+@keyframes pulseGlow {
+  0%,100% { box-shadow: 0 0 12px rgba(255,184,0,.5); transform: scale(1); }
+  50% { box-shadow: 0 0 20px rgba(255,184,0,.9); transform: scale(1.02); }
+}
+.cta-button:hover, form button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 25px rgba(255,184,0,1);
+}
+
+/* Logo shield glow */
+header img {
+  filter: drop-shadow(0 0 10px rgba(255,184,0,.8));
+}
+
+/* Smooth fade-in animation for sections */
+.section, .trust-card, .testimonial {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+@keyframes fadeInUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Improve responsiveness */
+@media (max-width: 768px) {
+  h1, h2, h3 { font-size: 90% !important; }
+  .cta-button { width: 100%; margin-top: 10px; }
+  form input, form textarea { font-size: 16px !important; }
+}
+
+/* Ensure contrast for accessibility */
+body { color-scheme: dark; }
+
+
+/* --- Charity Heart Glow & Section Styling --- */
+.heart-glow {
+  position: relative;
+  display: inline-block;
+  background: var(--accent);
+  color: #0b1220;
+  padding: 14px 22px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 0 14px rgba(255, 184, 0, .6);
+  animation: heartPulse 2.6s ease-in-out infinite;
+}
+.heart-glow:before, .heart-glow:after{
+  content: "❤";
+  position: absolute;
+  top: -6px;
+  font-size: 14px;
+  opacity: .85;
+  animation: floatHeart 3.2s ease-in-out infinite;
+}
+.heart-glow:before{ left: -10px; }
+.heart-glow:after { right: -10px; animation-delay: 1.2s; }
+
+@keyframes heartPulse {
+  0%, 100% { box-shadow: 0 0 14px rgba(255, 184, 0, .6); transform: translateZ(0) scale(1); }
+  50% { box-shadow: 0 0 26px rgba(255, 200, 60, .95); transform: translateZ(0) scale(1.03); }
+}
+@keyframes floatHeart {
+  0% { transform: translateY(0); opacity: .85; }
+  50% { transform: translateY(-6px); opacity: 1; }
+  100% { transform: translateY(0); opacity: .85; }
+}
+
+.charity-wrap{
+  padding: 48px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
+  border-top: 1px solid var(--border);
+}
+.charity-grid{
+  display: grid;
+  gap: 22px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.charity-card{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 10px 28px rgba(0,0,0,.25);
+}
+.charity-card h3{ color: var(--heading); margin-top: 0; }
+.charity-contact{ margin-top: 14px; }
+.charity-contact a{ color: var(--link); font-weight: 700; }

@@ -1,0 +1,5 @@
+# Force www to apex
+https://www.infomanagements.org/*  https://infomanagements.org/:splat  301!
+# Ensure files like robots/sitemap return 200 (esp. on SPAs)
+/robots.txt   /robots.txt   200
+/sitemap.xml  /sitemap.xml  200

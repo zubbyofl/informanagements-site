@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<link href="/assets/theme.css" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Testimonials • Info Managements</title>
+<link href="https://infomanagements.org/testimonials" rel="canonical"/>
+<meta content="Testimonials • Info Managements" property="og:title"/>
+<meta content="Real stories from people who felt heard, supported, and understood." property="og:description"/>
+<link href="/assets/ui-touchups.css" rel="stylesheet"/><meta content="summary_large_image" name="twitter:card"/></head>
+<body>
+<!-- Injected Brand Header -->
+<header style="text-align:center; padding:20px 16px;">
+<img alt="Info Managements" onerror="this.src='/assets/logo.svg';" src="/assets/logo.png" style="height:80px; border-radius:8px;"/>
+<a class="nav-link" href="/#charity">Charity</a></header>
+<!-- Nav injected globally -->
+<section class="hero-section">
+<h1>What People Say</h1>
+<p>Real stories from people who felt heard, supported, and understood.</p>
+<div class="cta-row">
+<a class="cta-button" data-mailto="team@infomanagements.org" data-subject="Consultation Request" href="#contact">Talk With Our Team</a>
+<a class="cta-button" href="mailto:membership@infomanagements.org?subject=Let%27s%20Talk&amp;body=Hello%2C%20I%27d%20love%20to%20learn%20more%20about%20VIP%20membership.">Get VIP Access</a>
+</div>
+</section>
+<section class="section">
+<div class="testimonial"><p><strong>“They truly listened.”</strong> I finally felt like someone understood what I meant — and they acted on it.</p></div>
+<div class="testimonial"><p><strong>“Zero pressure, all care.”</strong> They explained everything clearly and made it easy to decide.</p></div>
+<div class="testimonial"><p><strong>“Professional &amp; warm.”</strong> I was skeptical at first, but their honesty and speed won me over.</p></div>
+<div class="testimonial"><p><strong>“I felt safe.”</strong> The privacy note under the form really reassured me. They handled my info with respect.</p></div>
+</section>
+<section class="section">
+<div class="contact-panel">
+<h2>Ready to Share Your Story?</h2>
+<form data-netlify="true" data-netlify-honeypot="bot-field" method="POST" name="testimonials">
+<input name="form-name" type="hidden" value="testimonials"/>
+<p class="hidden" style="display:none;">
+<label>Don’t fill this out if you're human: <input name="bot-field"/></label>
+</p>
+<p><label>Name (optional)<br/><input name="name" type="text"/></label></p>
+<p><label>Your Experience<br/><textarea name="message" required="" rows="6"></textarea></label></p>
+<p><button type="submit">Share Feedback</button></p>
+<p class="small">Your privacy is safe with us. We only use this to improve and never share without permission.</p>
+</form>
+<!-- Injected Thank You UI -->
+<div id="thankyou-message" style="display:none; text-align:center; margin-top:20px;">
+<h3 style="color:#002855;">💛 Thank you for reaching out!</h3>
+<p>We’ve received your message and can’t wait to connect. Your words matter — we’ll respond with care.</p>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Attach handler to all Netlify forms on page
+  document.querySelectorAll("form[data-netlify='true']").forEach(function(form){
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      fetch("/", { method: "POST", body: data })
+        .then(function() {
+          form.style.display = "none";
+          var ty = document.getElementById("thankyou-message");
+          if(ty){ ty.style.display = "block"; }
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        })
+        .catch(function(){ alert("There was an issue sending your message. Please try again."); });
+    });
+  });
+});
+</script>
+</div>
+</section>
+<script src="/assets/site-config.js"></script>
+<script src="/assets/whatsapp-widget.js"></script>
+<div class="safety-banner safety-banner--info" data-safety-banner="" style="background: linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,.85));">
+<strong>Safety notice:</strong>
+<div class="safety-banner__text">
+    We keep all coordination strictly on official channels. If you receive unusual payment or verification requests, contact us directly.
+  </div>
+<a class="button safety-banner__btn" data-body="Please include screenshots, usernames, and a brief summary." data-mailto="fraud@infomanagements.org" data-subject="Report a suspicious message">Report Issue</a>
+<button aria-label="Dismiss safety notice" class="button" data-close-safety="">Close</button>
+</div>
+<section class="footer-disclaimer">
+<strong>Disclaimer &amp; Safety:</strong>
+  This site provides information and bookings coordination only. Financial transactions occur through approved, official methods shared by our team.
+  If anything feels off, email <a href="mailto:fraud@infomanagements.org">fraud@infomanagements.org</a> and copy <a href="mailto:privacy@infomanagements.org">privacy@infomanagements.org</a>.
+  Use of this site implies agreement with our <a href="/privacy.html">Privacy Policy</a> and <a href="/fraud.html">Safety Guidance</a>.
+</section>
+<script defer="True" src="/assets/site-enhancements.js"></script><footer><a href="/charity.html">Charity &amp; Community</a></footer></body>
+</html>

@@ -1,0 +1,212 @@
+/* InfoManagements: Payment Safety & Disclaimer (namespaced) */
+:root{
+  --im-bg: transparent;
+  --im-fg: #0f172a;
+  --im-accent: #16a34a;
+  --im-accent-2: #0284c7;
+  --im-muted: #475569;
+  --im-card: #ffffff;
+  --im-shadow: 0 14px 40px rgba(2,6,23,.08);
+  --im-radius: 14px;
+  --im-maxw: 1100px;
+  --im-pad: clamp(12px, 2vw, 20px);
+  --im-gap: clamp(8px, 1.2vw, 16px);
+  --im-h1: clamp(22px, 2.6vw, 32px); /* bold but not overwhelming */
+  --im-h2: clamp(18px, 2.3vw, 26px);
+  --im-body: clamp(14px, 1.2vw, 16px);
+  --im-small: clamp(12px, 1.1vw, 13px);
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --im-fg: #f8fafc;
+    --im-muted: #94a3b8;
+    --im-card: #0b1220;
+    --im-shadow: 0 10px 30px rgba(0,0,0,.25);
+  }
+}
+
+.im-wrap{ color: var(--im-fg); }
+
+.im-container{ max-width: var(--im-maxw); margin: 0 auto; padding: var(--im-pad); }
+.im-card{
+  background: var(--im-card);
+  border-radius: var(--im-radius);
+  border: 1px solid rgba(2,6,23,.06);
+  box-shadow: var(--im-shadow);
+}
+
+.im-flex{ display:flex; gap: var(--im-gap); align-items:center; }
+.im-col{ display:grid; gap: var(--im-gap); }
+
+.im-kicker{
+  display:inline-flex; gap:.6ch; font-weight:800; letter-spacing:.02em; text-transform:uppercase;
+  font-size: var(--im-small); color: var(--im-accent-2);
+}
+
+.im-lock{
+  width: clamp(40px, 6vw, 60px); height: clamp(40px, 6vw, 60px);
+  display:grid; place-items:center; border-radius: 12px;
+  background: radial-gradient(100% 100% at 50% 0%, rgba(14,165,233,.22), rgba(34,197,94,.12));
+  border: 1px solid rgba(56,189,248,.35);
+}
+
+.im-title{ font-size: var(--im-h1); line-height:1.15; margin:0; font-weight:900; letter-spacing:-.015em; }
+.im-sub{ font-size: var(--im-body); color: var(--im-muted); margin: 0; }
+
+.im-highlight{ color: var(--im-accent); font-weight: 900; }
+
+.im-panel{ display:grid; gap: var(--im-gap); padding: calc(var(--im-pad) * .9); }
+
+.im-bullets{ margin:0; padding-left: 1.1em; display:grid; gap:.4em; }
+.im-bullets li{ line-height:1.55; }
+
+.im-cta{ display:flex; flex-wrap:wrap; gap:10px; margin-top:.2rem; }
+.im-btn{
+  appearance:none; border:none; cursor:pointer; font-weight:800; letter-spacing:.01em;
+  padding:.8em 1em; border-radius:12px; text-decoration:none;
+  display:inline-flex; align-items:center; gap:.6ch; box-shadow: var(--im-shadow);
+  transition: transform .15s ease, opacity .15s ease;
+}
+.im-btn.primary{ background: linear-gradient(135deg, var(--im-accent), #22c55e); color: #052e12; }
+.im-btn.ghost{ background: transparent; color: inherit; border: 1px dashed rgba(2,6,23,.15); }
+
+.im-note{ font-size: var(--im-small); color: var(--im-muted); }
+
+.im-sep{ height:1px; background: linear-gradient(90deg, transparent, rgba(2,6,23,.15), transparent); margin:.4rem 0; }
+
+.im-legal h2{ margin:0; font-size: var(--im-h2); }
+.im-legal p{ margin:0; font-size: var(--im-body); line-height:1.6; }
+.im-legal .im-legal-box{
+  padding: calc(var(--im-pad) * .9);
+  background: linear-gradient(180deg, rgba(14,165,233,.06), rgba(34,197,94,.06));
+  border: 1px solid rgba(2,6,23,.08);
+  border-radius: 14px;
+}
+
+@media (max-width: 720px){
+  .im-flex{ flex-direction: column; align-items:flex-start; }
+  .im-btn{ width:100%; justify-content:center; }
+}
+@media (max-width: 420px){ .im-panel{ padding: clamp(10px, 3.2vw, 16px);} }
+
+/* Emphasis for Payment Safety navbar link */
+.im-nav-link{ font-weight: 700; text-decoration: none; }
+.im-nav-safety .im-nav-link, .im-nav-link.im-nav-safety{ color: #16a34a; }
+.im-nav-link:hover{ opacity: .9; }
+.im-topbar{ display:flex; justify-content:flex-end; gap:12px; padding: 8px 14px; }
+
+/* Floating action button for quick verification */
+.im-fab{
+  position: fixed;
+  right: clamp(12px, 2vw, 18px);
+  bottom: clamp(14px, 3.2vw, 22px);
+  display: inline-flex;
+  align-items: center;
+  gap: .6ch;
+  padding: .8em 1em;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  color: #052e12;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 12px 30px rgba(22,163,74,.35);
+  z-index: 999;
+}
+.im-fab svg{ color: currentColor; }
+.im-fab:hover{ transform: translateY(-1px); }
+.im-fab:active{ transform: translateY(0); }
+
+/* Headline balance (keeps bold look but tighter on small screens) */
+.im-title{ word-wrap: break-word; hyphens: auto; }
+@media (max-width: 420px){
+  .im-title{ font-size: clamp(20px, 6vw, 28px) !important; }
+}
+
+html{scroll-behavior:smooth;}
+:target{scroll-margin-top: clamp(60px, 8vh, 96px);} /* offset for sticky headers */
+
+/* Back to top button */
+#im-backtotop {
+  position: fixed;
+  right: clamp(14px, 2vw, 24px);
+  bottom: clamp(70px, 10vh, 110px);
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  font-size: 20px;
+  font-weight: 700;
+  box-shadow: 0 10px 25px rgba(34,197,94,0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s ease;
+  z-index: 998;
+}
+#im-backtotop.show {
+  opacity: 1;
+  visibility: visible;
+}
+#im-backtotop:hover {
+  transform: translateY(-3px);
+  cursor: pointer;
+}
+
+
+/* ---- Badge & size tuning ---- */
+.im-badge{ width: clamp(38px, 6.2vw, 56px); height: auto; display:block; margin: 0 auto; filter: drop-shadow(0 6px 18px rgba(250, 204, 21, .25)); }
+.im-badge-link{ display:inline-block; margin: 0 auto clamp(6px, 1.6vw, 10px); }
+
+/* Compact headline & padding for Payment Safety */
+#payment-safety .im-title{ font-size: clamp(20px, 2.4vw, 30px); }
+#payment-safety .im-panel{ padding: clamp(12px, 2.6vw, 20px); }
+#payment-safety .im-bullets li{ margin-left: .2em; }
+
+/* Buttons a touch smaller for better mobile fit */
+.im-btn{ padding: .72em .95em; border-radius: 12px; }
+
+/* Back-to-top size slightly smaller to avoid overlapping chat/WhatsApp */
+#im-backtotop{ width: 38px; height: 38px; font-size: 18px; bottom: clamp(66px, 9vh, 100px); }
+
+
+/* Charity & Care badge and sizing */
+#charity-care .im-title{ font-size: clamp(20px, 2.2vw, 28px); }
+#charity-care .im-panel{ padding: clamp(12px, 2.6vw, 20px); }
+#charity-care .im-btn{ min-height: 42px; } /* good tap target */
+@media (max-width: 420px){
+  #charity-care .im-btn{ width: 100%; }
+}
+
+/* Nav usability on very small screens: allow wrapping */
+nav ul{ flex-wrap: wrap; row-gap: 6px; }
+
+/* Sticky 'Need help?' ribbon */
+.im-help-ribbon{
+  position: fixed;
+  left: clamp(12px, 2vw, 18px);
+  bottom: clamp(16px, 3.2vw, 24px);
+  display: inline-flex;
+  align-items: center;
+  gap: .55ch;
+  padding: .6em .9em;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #0ea5e9, #22c55e);
+  color: #06240f;
+  text-decoration: none;
+  font-weight: 800;
+  box-shadow: 0 12px 28px rgba(14,165,233,.3);
+  z-index: 997;
+  white-space: nowrap;
+}
+.im-help-ribbon span{ opacity: .85; }
+.im-help-ribbon:hover{ transform: translateY(-1px); }
+@media (max-width: 420px){
+  .im-help-ribbon{ font-size: 14px; padding: .55em .85em; }
+}
+@media (prefers-reduced-motion: reduce){
+  .im-help-ribbon, .im-help-ribbon:hover{ transition: none; transform: none; }
+}
+
+.im-mailto{text-decoration:underline; text-underline-offset: 2px;}
