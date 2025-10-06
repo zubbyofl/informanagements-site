@@ -3,15 +3,18 @@
   --bg:#0E1A2B;
   --bg-2:#121E30;
   --border:#1C2A3D;
-  --text:#EAF1FF;
-  --muted:#B9C3D6;
+  --text:#F5FAFF;     /* brighter */
+  --muted:#C7D2E6;    /* brighter secondary */
   --brand:#F2C94C;
   --brand-700:#E5B93E;
+  --wa-green:#25D366;
+  --wa-green-700:#1ebe57;
 }
 
 html,body{background:var(--bg);color:var(--text);}
 
-header, .hero, section, footer{background:var(--bg);}
+header{background:var(--bg); position: relative; z-index: 5;}
+.hero, section, footer{background:var(--bg);}
 
 .box, .feature, .card, .info, .panel, .callout{
   background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)), var(--bg-2);
@@ -22,33 +25,59 @@ header, .hero, section, footer{background:var(--bg);}
 a{color:var(--brand);}
 p{color:var(--muted);}
 
+/* WhatsApp buttons green */
+.btn{display:inline-block;padding:12px 18px;border-radius:10px;font-weight:700;text-decoration:none;}
+.btn--wa, .wa-float{ background: var(--wa-green) !important; color:#041017 !important; }
+.btn--wa:hover, .wa-float:hover{ background: var(--wa-green-700) !important; }
+
 .wa-float{
   position:fixed; right:18px; bottom:18px;
   display:inline-flex; align-items:center; gap:10px;
   padding:12px 14px; border-radius:999px;
-  background:var(--brand); color:#0B1220; font-weight:700;
   box-shadow:0 8px 24px rgba(0,0,0,.35);
   text-decoration:none; z-index:9999; transform:translateZ(0);
 }
-.wa-float:hover{background:var(--brand-700);}
 .wa-float img{width:22px;height:22px;border-radius:6px;}
 @media (max-width:480px){ .wa-float span{display:none;} }
 
-.feature, .card, .info, .panel, .callout{
-  position:relative;
-  padding-left:56px;
-}
+/* Badge in boxes */
+.feature, .card, .info, .panel, .callout{ position:relative; padding:18px 16px 16px 56px; }
 .feature::before, .card::before, .info::before, .panel::before, .callout::before{
-  content:"";
-  position:absolute; left:16px; top:16px;
+  content:""; position:absolute; left:16px; top:16px;
   width:28px; height:28px; border-radius:6px;
-  background: url('/assets/im-badge.png') no-repeat center/cover;
+  background: url('assets/im-badge.png') no-repeat center/cover;
 }
 
-.btn{display:inline-block;padding:12px 18px;border-radius:10px;font-weight:700;text-decoration:none;}
-.btn--wa{background:var(--brand);color:#0B1220;}
-.btn--wa:hover{background:var(--brand-700);}
+/* Payment Safety pill */
+.safety-badge{
+  display:inline-flex; align-items:center; gap:8px;
+  background: rgba(255,255,255,0.06);
+  border:1px solid var(--border);
+  padding:6px 10px; border-radius:10px;
+  font-size:.85rem; color:var(--text);
+}
+.safety-badge img{ width:18px; height:18px; border-radius:4px; }
+.safety-badge .lock{ font-size:1rem; opacity:.85 }
 
+/* Hero readability */
+.hero, .hero *{ color:#F8FBFF; }
+.hero p{ color:#DAE6F7; }
+
+/* Emails never collide */
+a[href^="mailto:"], .email, .email a{
+  overflow-wrap:anywhere; word-break:break-word;
+}
+
+/* Footer disclaimer block */
+footer .disclaimer, .disclaimer{ 
+  background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)), var(--bg-2);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px; margin-top:18px;
+  color:#C7D2E6;
+}
+
+/* Misc */
 img{max-width:100%;height:auto;}
 .container, main, section{max-width:1200px;margin-inline:auto;padding-inline:16px;}
 *{box-sizing:border-box;}
