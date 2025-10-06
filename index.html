@@ -1,90 +1,70 @@
+
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Info Managements — Trust, Care & Protection</title>
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.svg">
-<link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#0B1B2B">
-<meta name="description" content="Secure, caring support for victims of imposter scams. Verify any request, connect with a human, and get help from Info Managements.">
-<link rel="stylesheet" href="/theme.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Info Managements</title>
+  <meta name="theme-color" content="#0b1b2a">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header class="nav">
-  <div class="wrap container">
-    <a class="brand" href="/"><img src="/logo.svg" alt="Info Managements logo"><strong style="margin-left:10px">Info&nbsp;Managements</strong></a>
-    <nav style="margin-left:auto;display:flex;gap:14px;align-items:center">
-      <a href="/about.html">About</a><a href="/charity.html">Charity</a><a href="/contact.html">Contact</a>
-    </nav>
-  </div>
+<header class="header">
+  <nav class="nav">
+    <a class="brand" href="index.html"><img src="assets/im-logo.png" alt="IM logo">Info Managements</a>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="team.html">Team</a>
+      <a href="charity.html">Charity</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a class="cta" href="contact.html">Verify a Request</a>
+  </nav>
 </header>
 
-<section class="hero container">
-  <h1>Support for Scam Victims — Safe, Caring, and Real</h1>
-  <p>If you’re worried about a suspicious message or request, we’ll help you verify quickly and privately. Official communications only come from <strong>@infomanagements.org</strong>. If something feels wrong, contact us — we’ll help.</p>
-  <div class="badges" aria-hidden="true">
-    <span class="badge"><img src="/badge.svg" width="18" height="18" alt=""> SSL Secured</span>
-    <span class="badge"><img src="/badge.svg" width="18" height="18" alt=""> Verified Organization</span>
-    <span class="badge"><img src="/badge.svg" width="18" height="18" alt=""> Official Channel</span>
-  </div>
-  <div class="cta">
-    <a class="btn btn-primary" href="#verify">Verify a Request</a>
-    <a class="btn btn-outline" href="#contact">Talk to a Human</a>
-  </div>
-</section>
-
-<section class="container" aria-labelledby="services">
-  <div class="cards" id="services">
-    <div class="card"><h3>Private & Respectful</h3><p>Your dignity comes first. We will not ask you to share sensitive codes or make payments directly on our site.</p></div>
-    <div class="card"><h3>Fast Verification</h3><p>Send the message, link, or screenshot and we’ll confirm authenticity and next steps.</p></div>
-    <div class="card"><h3>Clear Next Steps</h3><p>Concise guidance, emotional support, and safety-first advice from our team.</p></div>
-  </div>
-</section>
-
-<section class="container" id="verify">
-  <div class="charity">
-    <h2>Charity & Community</h2>
-    <p>We support victims of imposter scams with emotional care and community resources. Join or support our outreach to make a difference.</p>
-    <div class="cta">
-      <a class="btn btn-primary" href="mailto:charity@infomanagements.org">Contact Charity Team</a>
-      <a class="btn btn-outline" href="#contact">Get Help Now</a>
+<section class="hero">
+  <div class="inner">
+    <img src="assets/im-logo.png" alt="IM logo" style="width:60px;height:60px;border-radius:12px;">
+    <div>
+      <h1 class="headline">Support for Scam Victims — Safe, Caring, and Real</h1>
+      <p class="sub">If you're worried about a suspicious message or request, we'll help you verify quickly and privately. Official communications only come from @infomanagements.org.</p>
+      <div class="kv-badges">
+        <div class="chip"><img src="assets/badge.png" alt="" width="16" height="16"> SSL Secured</div>
+        <div class="chip"><img src="assets/badge.png" alt="" width="16" height="16"> Verified Organization</div>
+        <div class="chip"><img src="assets/badge.png" alt="" width="16" height="16"> Official Channel</div>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="contact.html">Verify a Request</a>
+        <a class="btn btn-ghost" href="contact.html">Talk to a Human</a>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="container" id="reports">
-  <h2 style="text-align:center;margin-top:22px">Verified Reports & Testimonials</h2>
-  <div class="cards" style="margin-top:12px">
-    <div class="card"><h3>“They helped me verify a fake request”</h3><p>— A. N., received prompt help and clear guidance in <strong>less than 2 hours</strong>. The team was patient and respectful.</p></div>
-    <div class="card"><h3>“Real human support when I needed it”</h3><p>— M. K., said the support team walked them through safe next steps and connected them to local resources.</p></div>
-    <div class="card"><h3>“Quick verification saved me from a scam”</h3><p>— L. S., verified an invoice that turned out to be fraudulent and avoided loss thanks to the team’s confirmation.</p></div>
-  </div>
-</section>
+<div class="section">
+  <h2><img class="logo" src="assets/im-logo.png" alt="">Private &amp; Respectful</h2>
+  <div class="card">Your dignity comes first. We will not ask you to share sensitive codes or make payments directly on our site.</div>
+</div>
 
-<footer id="contact">
-  <div class="container">
-    <div class="cards">
-      <div class="card">
-        <h3>Contact</h3>
-        <p>Email: <a href="mailto:info@infomanagements.org">info@infomanagements.org</a></p>
-        <p>Fraud Desk: <a href="mailto:fraud@infomanagements.org">fraud@infomanagements.org</a></p>
-      </div>
-      <div class="card">
-        <h3>Disclaimer</h3>
-        <p>We never ask for sensitive verification codes, passwords, gift card details, or cryptocurrency transfers. If anyone asks for those, do not proceed — contact us immediately.</p>
-      </div>
-      <div class="card">
-        <h3>Policies</h3>
-        <p><a href="/privacy.html">Privacy Policy</a> · <a href="/fraud.html">Safety & Fraud</a></p>
-        <div style="margin-top:8px"><img src="/badge.svg" width="20" height="20" alt="" style="vertical-align:-3px"> <span class="badge">© 2025</span> <span class="badge">Privacy‑First</span></div>
-      </div>
+<div class="section">
+  <h2><img class="logo" src="assets/im-logo.png" alt="">Fast Verification</h2>
+  <div class="card">Send the message, link, or screenshot and we'll confirm authenticity and safe next steps.</div>
+</div>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="row">
+      <div class="brand"><img src="assets/im-logo.png" alt="IM logo">Info Managements</div>
+      <small>© 2025 • Privacy‑First</small>
+    </div>
+
+    <div class="disclaimer">
+      <p><strong>Disclaimer.</strong> We never ask for payment without approval — and never before approval. Any payment happens <strong>only after approval by the Head of Management Board</strong> and <strong>only via an official invoice from @infomanagements.org</strong>. If anyone requests payment before approval, asks for gift cards/crypto, or shares non‑official links, <strong>stop and contact our team immediately</strong>. Your trust matters to us, and we protect it with integrity.</p>
     </div>
   </div>
 </footer>
-
-<script src="/site-config.js"></script>
-<script src="/whatsapp-widget.js" defer></script>
-<script src="/auto-open-whatsapp.js" defer></script>
 </body>
 </html>

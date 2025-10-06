@@ -122,6 +122,3 @@
 @media (max-width: 420px){
   .im-title{ font-size: clamp(20px, 6vw, 28px) !important; }
 }
-
-html{scroll-behavior:smooth;}
-:target{scroll-margin-top: clamp(60px, 8vh, 96px);} /* offset for sticky headers */
