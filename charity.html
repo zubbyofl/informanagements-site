@@ -1,67 +1,76 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Charity &amp; Community — Infomanagements</title>
-<link href="https://infomanagements.org/charity.html" rel="canonical"/>
-<meta content="Our community initiatives and charity partnerships." name="description"/>
-<meta content="Charity &amp; Community — Infomanagements" property="og:title"/>
-<meta content="See how we contribute and partner with community initiatives." property="og:description"/>
-<meta content="https://infomanagements.org/charity.html" property="og:url"/>
-<meta content="summary_large_image" name="twitter:card"/>
-<link href="assets/ui-touchups.css" rel="stylesheet"/>
-<link href="assets/theme.css" rel="stylesheet"/><meta content="#0E1A2B" name="theme-color"/></head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Info Managements</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function toggleMenu(){document.getElementById('menu').classList.toggle('open');}
+  </script>
+</head>
 <body>
-<header class="site-header">
-<nav class="site-nav" role="navigation">
-<a class="logo-link" href="/index.html"><span>Infomanagements</span></a>
-<a href="/about.html">About</a>
-<a href="/bookings.html">Bookings</a>
-<a href="/membership.html">Membership</a>
-<a href="/contact.html">Contact</a>
-<a aria-current="page" href="/charity.html"><strong>Charity &amp; Community</strong></a>
-</nav>
+<header class="header">
+  <div class="container nav">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" alt="IM">
+      <span>Info Managements</span>
+    </a>
+    <button class="mobile-toggle" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+    <nav id="menu" class="menu">
+      <a href="index.html">Home</a>
+      <a href="team.html">Team</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="join-vip.html">Join VIP</a>
+      <a href="contact.html">Contact</a>
+      <a href="charity.html">Charity</a>
+    </nav>
+  </div>
 </header>
-<main>
-<section class="hero reveal-up" style="padding: 3rem 1rem;">
-<h1>Charity &amp; Community</h1>
-<p>We collaborate with vetted initiatives that align with our values and community goals.</p>
-<div style="margin-top:1rem; display:flex; gap:.75rem; flex-wrap:wrap;">
-<a class="button" href="#partners">View Partners</a>
-<a class="button" href="#impact">Our Impact</a>
-<a class="button" data-mailto="team@infomanagements.org" data-subject="Charity Partnership">Propose a Partnership</a>
-</div>
-</section>
-<section class="reveal-up" id="partners" style="padding: 2rem 1rem;">
-<h2>Partners</h2>
-<p>Below are examples of the types of organizations we collaborate with. We tailor support based on the project’s needs and community priorities.</p>
-<ul>
-<li>Education &amp; mentorship initiatives</li>
-<li>Arts &amp; culture programs</li>
-<li>Community health &amp; well-being projects</li>
-</ul>
-<p>Want to be featured here? <a data-mailto="team@infomanagements.org" data-subject="Charity Partner Onboarding">Email our team</a>.</p>
-</section>
-<section class="reveal-up" id="impact" style="padding: 2rem 1rem;">
-<h2>Our Impact</h2>
-<div>
-<p><strong>How we contribute:</strong></p>
-<ul>
-<li>Awareness and visibility through campaigns and events</li>
-<li>Coordination support for community-led projects</li>
-<li>Pro bono time from our team, where appropriate</li>
-</ul>
-<p><strong>Transparency:</strong> We provide brief recaps after each initiative, highlighting goals and outcomes.</p>
-</div>
-</section>
-<section class="reveal-up" style="padding: 2rem 1rem;">
-<h2>Contact</h2>
-<p>For partnership proposals or community ideas, reach us via <a data-mailto="team@infomanagements.org" data-subject="Charity Partnership">team@infomanagements.org</a>.</p>
-</section>
-</main>
-<!-- Safety & Disclaimer + JS -->
-<script defer="" src="assets/site-enhancements.js"></script>
-<footer><a href="/charity.html">Charity &amp; Community</a></footer><a class="wa-float" href="https://wa.me/12136425934?text=Hello%20Info%20Managements%2C%20I%20need%20assistance." rel="noopener" target="_blank"><img alt="WhatsApp IM" src="assets/im-badge.png"/><span>Chat on WhatsApp</span></a></body>
-</html>
+
+  <div class="band">
+    <div class="container inner">
+      <div class="badge">
+        <img src="assets/logo.png" alt="IM">
+        <span>Infomanagements</span>
+      </div>
+      <a href="index.html">Home</a>
+      <a href="join-vip.html">Membership &amp; VIP</a>
+      <a href="bookings.html">Bookings</a>
+      <a href="fraud-help.html">Fraud Help</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="charity.html">Charity</a>
+    </div>
+  </div>
+<section class="section"><div class="container"><h2>Charity</h2><p>Giving back is part of who we are.</p></div></section>
+<footer class="footer">
+  <div class="container cols">
+    <div>
+      <div class="brandline"><img src="assets/logo.png" alt="IM"><strong>Infomanagements</strong></div>
+      <p>A professional talent &amp; project management agency focused on safe, verified connections.</p>
+      <p><strong>WhatsApp:</strong> +1 (213) 642-5934</p>
+    </div>
+    <div>
+      <h4>Email</h4>
+      <ul>
+        <li>Membership &amp; VIP — <a href="mailto:membership@infomanagements.org">membership@infomanagements.org</a></li>
+        <li>Bookings — <a href="mailto:bookings@infomanagements.org">bookings@infomanagements.org</a></li>
+        <li>Fraud Dept — <a href="mailto:frauddepartment@infomanagements.org">frauddepartment@infomanagements.org</a></li>
+        <li>General — <a href="mailto:contact@infomanagements.org">contact@infomanagements.org</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Safety</h4>
+      <p class="small"><strong>Payments Safety:</strong> Payments are only accepted after approval from the Head of Management Board and via an official invoice from @infomanagements.org. We never request payments without approval or upon approval!</p>
+      <p class="small">If you don’t receive an approved invoice from our domain, it isn’t from us.</p>
+    </div>
+  </div>
+</footer>
+<a class="wa-float" href="https://wa.me/12136425934" aria-label="WhatsApp">
+  <img src="assets/whatsapp.png" alt="WhatsApp">
+</a>
+</body></html>
