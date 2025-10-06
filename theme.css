@@ -1,197 +1,125 @@
-
-/* Info Managements • Dark Navy + Gold Theme (Accessible) */
+/* === Base / Design Tokens === */
 :root{
-  --bg1:#0b1220;
-  --bg2:#101b34;
-  --surface:#0f1a33;
-  --surface-2:#122040;
-  --border:#1d2a4a;
-  --text:#e6ecff;
-  --text-muted:#b9c6ff;
-  --heading:#d7e6ff;
-  --accent:#ffb800;
-  --accent-2:#ffd45a;
-  --link:#ffb800;
-  --navy:#002855;
+  --bg-1:#0b1b2b;
+  --bg-2:#132b45;
+  --card:#0f2237;
+  --text:#eaf1f7;
+  --muted:#b8c7d6;
+  --accent:#ffcc40;
+  --accent-2:#67d9a7;
+  --danger:#ff6b6b;
+  --link:#9ed1ff;
+  --max: 62rem;
+  --radius:14px;
+  --space: clamp(14px, 2.1vw, 22px);
+  --space-lg: clamp(24px, 4vw, 46px);
+  --shadow: 0 6px 20px rgba(0,0,0,.28);
 }
 
-/* Subtle noise/texture overlay using SVG data URI */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
 body{
-  background: radial-gradient(1200px 600px at 50% -10%, rgba(255,255,255,0.05), transparent 60%),
-              linear-gradient(180deg, var(--bg1), var(--bg2));
-  color: var(--text);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+  color:var(--text);
+  background:
+    radial-gradient(1200px 600px at 80% -10%, #1b3756 0%, transparent 60%),
+    radial-gradient(800px 500px at 10% 0%, #0a2a48 0%, transparent 60%),
+    linear-gradient(180deg, var(--bg-1), var(--bg-2));
 }
 
-/* Global text + headings */
-h1,h2,h3,h4,h5,h6{ color: var(--heading) !important; }
-p,li,small,span{ color: var(--text); }
-a{ color: var(--link); text-decoration: none; }
-a:hover{ text-decoration: underline; color: var(--accent-2); }
+section{padding: clamp(36px, 6vw, 72px) 20px}
+.container{max-width: var(--max); margin:auto}
 
-/* Header / Nav */
-header[style*="position:sticky"], header nav, header { background: rgba(16,27,52,.85) !important; backdrop-filter: blur(6px); }
-header nav a{ color: var(--text) !important; }
-header nav a:hover{ color: var(--accent-2) !important; }
-header .cta-button{ background: var(--accent); color: #0b1220; }
-
-/* Hero */
-.hero-section{ background: linear-gradient(90deg, #0c1a36, #132650) !important; color:#fff; }
-.hero-section p{ color:#eef3ff !important; }
-
-/* Sections / Cards */
-.section{ background: transparent !important; }
-.trust-grid{ gap:22px; }
-.trust-card{ 
-  background: var(--surface) !important; 
-  border: 1px solid var(--border) !important; 
-  color: var(--text) !important; 
-  box-shadow: 0 10px 30px rgba(0,0,0,.25) !important;
+.nav{
+  position:sticky; top:0; z-index:5;
+  backdrop-filter:saturate(160%) blur(8px);
+  background-color: rgba(10,25,41,.7);
+  border-bottom: 1px solid rgba(255,255,255,.06);
 }
-.testimonial{
-  background: var(--surface-2) !important;
-  border-left: 6px solid var(--accent) !important;
-  color: var(--text) !important;
-  box-shadow: 0 8px 24px rgba(0,0,0,.22) !important;
+.nav .wrap{
+  display:flex; align-items:center; gap:14px;
+  max-width: var(--max); margin:auto; padding: 10px 16px;
 }
+.brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text)}
+.brand svg{width:28px; height:28px}
+.nav a{color:var(--muted); text-decoration:none; font-weight:600}
+.nav a:hover{color:var(--text)}
 
-/* Contact panel & Thank-you */
-.contact-panel{ 
-  background: var(--surface) !important; 
-  border: 1px solid var(--border) !important;
-  color: var(--text) !important;
+.hero{
+  padding: clamp(40px, 5vw, 64px) 20px clamp(28px, 4vw, 48px);
+  text-align:center;
 }
-#thankyou-message h3{ color: var(--accent-2) !important; }
-
-/* Forms */
-form input, form textarea{
-  background: #0b1631 !important;
-  color: var(--text) !important;
-  border: 1px solid var(--border) !important;
+.hero h1{
+  font-size: clamp(28px, 4.6vw, 44px);
+  line-height:1.15; margin: 0 0 12px;
 }
-form input::placeholder, form textarea::placeholder{ color: #9db0e6 !important; }
-form button{ background: var(--accent) !important; color: #0b1220 !important; border:none !important; }
-form button:hover{ filter: brightness(1.05); }
-
-/* Footer-like small text */
-.small{ color: var(--text-muted) !important; }
-
-/* Cards / blocks that previously forced white */
-[style*="background:white"], [style*="background: white"]{
-  background: var(--surface) !important;
-  color: var(--text) !important;
+.hero p{
+  margin:0 auto 18px; max-width: 48rem;
+  font-size: clamp(15px, 1.8vw, 18px); color: var(--muted);
 }
+.hero .cta{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top: 16px}
 
-/* WhatsApp FAB ring for visibility on dark */
-a[aria-label="Chat on WhatsApp"]{ box-shadow: 0 10px 24px rgba(0,0,0,.4) !important; }
+.cards{
+  display:grid; gap:16px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.card{
+  background: var(--card);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: clamp(14px, 2vw, 20px);
+}
+.card h3{margin:0 0 6px; font-size: clamp(16px, 2.2vw, 20px)}
+.card p{margin:0; color:var(--muted); font-size: clamp(14px,1.7vw,16px)}
 
-/* Table/List readability */
-ul,ol{ color: var(--text) }
-li{ margin: .35em 0; }
+.badges{
+  display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:center;
+  margin-top: 8px;
+}
+.badge{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:6px 10px; border-radius:999px;
+  background: rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.08);
+  font-weight:600; color:var(--text); font-size:13px;
+}
+.badge svg{width:16px; height:16px}
 
-/* Ensure 404 looks themed */
-body:has(title:contains("404")) .section,
-body:has(title:contains("404")){ background: linear-gradient(180deg, var(--bg1), var(--bg2)); }
+.btn{
+  appearance:none; border:0; cursor:pointer;
+  padding:10px 16px; border-radius:10px; font-weight:700;
+  font-size:15px; line-height:1; text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+}
+.btn-primary{background: var(--accent); color:#1b1b1b}
+.btn-primary:hover{filter:brightness(1.05)}
+.btn-outline{
+  background: transparent; color: var(--text);
+  border:1px solid rgba(255,255,255,.24)
+}
+.btn-outline:hover{background: rgba(255,255,255,.08)}
 
+footer{
+  margin-top: 24px;
+  background: rgba(7,17,28,.8);
+  border-top:1px solid rgba(255,255,255,.06);
+}
+footer .grid{
+  display:grid; gap:16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+footer p, footer a{color: var(--muted); font-size:13.5px}
+footer a{color: var(--link); text-decoration:none}
+footer a:hover{text-decoration:underline}
 
-/* --- PERFECT EDITION ENHANCEMENTS --- */
+#wa-fab{
+  position: fixed; right:16px; bottom:16px; z-index:30;
+  border-radius:999px; padding:12px 14px; box-shadow: var(--shadow);
+  background: #25D366; color:#082b19; font-weight:800;
+  display:flex; align-items:center; gap:8px; text-decoration:none;
+}
+#wa-fab svg{width:18px; height:18px}
 
-/* Gold glow & animated pulse for CTAs */
-.cta-button, .contact-panel button, form button {
-  animation: pulseGlow 3s infinite ease-in-out;
-  border-radius: 6px;
-  box-shadow: 0 0 12px rgba(255,184,0,.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important; transition:none !important}
 }
-@keyframes pulseGlow {
-  0%,100% { box-shadow: 0 0 12px rgba(255,184,0,.5); transform: scale(1); }
-  50% { box-shadow: 0 0 20px rgba(255,184,0,.9); transform: scale(1.02); }
-}
-.cta-button:hover, form button:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 25px rgba(255,184,0,1);
-}
-
-/* Logo shield glow */
-header img {
-  filter: drop-shadow(0 0 10px rgba(255,184,0,.8));
-}
-
-/* Smooth fade-in animation for sections */
-.section, .trust-card, .testimonial {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s ease-out forwards;
-}
-@keyframes fadeInUp {
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Improve responsiveness */
-@media (max-width: 768px) {
-  h1, h2, h3 { font-size: 90% !important; }
-  .cta-button { width: 100%; margin-top: 10px; }
-  form input, form textarea { font-size: 16px !important; }
-}
-
-/* Ensure contrast for accessibility */
-body { color-scheme: dark; }
-
-
-/* --- Charity Heart Glow & Section Styling --- */
-.heart-glow {
-  position: relative;
-  display: inline-block;
-  background: var(--accent);
-  color: #0b1220;
-  padding: 14px 22px;
-  border-radius: 999px;
-  font-weight: 800;
-  text-decoration: none;
-  box-shadow: 0 0 14px rgba(255, 184, 0, .6);
-  animation: heartPulse 2.6s ease-in-out infinite;
-}
-.heart-glow:before, .heart-glow:after{
-  content: "❤";
-  position: absolute;
-  top: -6px;
-  font-size: 14px;
-  opacity: .85;
-  animation: floatHeart 3.2s ease-in-out infinite;
-}
-.heart-glow:before{ left: -10px; }
-.heart-glow:after { right: -10px; animation-delay: 1.2s; }
-
-@keyframes heartPulse {
-  0%, 100% { box-shadow: 0 0 14px rgba(255, 184, 0, .6); transform: translateZ(0) scale(1); }
-  50% { box-shadow: 0 0 26px rgba(255, 200, 60, .95); transform: translateZ(0) scale(1.03); }
-}
-@keyframes floatHeart {
-  0% { transform: translateY(0); opacity: .85; }
-  50% { transform: translateY(-6px); opacity: 1; }
-  100% { transform: translateY(0); opacity: .85; }
-}
-
-.charity-wrap{
-  padding: 48px 20px;
-  max-width: 1100px;
-  margin: 0 auto;
-  background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
-  border-top: 1px solid var(--border);
-}
-.charity-grid{
-  display: grid;
-  gap: 22px;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-}
-.charity-card{
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 18px;
-  box-shadow: 0 10px 28px rgba(0,0,0,.25);
-}
-.charity-card h3{ color: var(--heading); margin-top: 0; }
-.charity-contact{ margin-top: 14px; }
-.charity-contact a{ color: var(--link); font-weight: 700; }

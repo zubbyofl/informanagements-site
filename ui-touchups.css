@@ -1,0 +1,144 @@
+
+/* ==========================
+   Infomanagements - UI Touchups
+   Timing scale, accessibility, CTA polish, banner styles
+   ========================== */
+
+/* 1) Global timing scale (seconds) */
+:root {
+  --t-xxs: .08s;
+  --t-xs:  .12s;
+  --t-sm:  .18s;
+  --t-md:  .28s;
+  --t-lg:  .42s;
+  --t-xl:  .60s;
+  --ease-out: cubic-bezier(.16,1,.3,1);
+  --ease-in: cubic-bezier(.32,0,.67,0);
+  --ease-in-out: cubic-bezier(.83,0,.17,1);
+}
+
+/* 2) Focus visibility for keyboard users */
+:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* 3) Buttons & links polish */
+.button, .btn, a.button, a.btn, button {
+  transition: transform var(--t-sm) var(--ease-out), box-shadow var(--t-sm) var(--ease-out);
+  will-change: transform;
+}
+.button:hover, .btn:hover, a.button:hover, a.btn:hover, button:hover {
+  transform: translateY(-1px);
+}
+.button:active, .btn:active, a.button:active, a.btn:active, button:active {
+  transform: translateY(0);
+}
+
+/* 4) Hero & section entrances (respect reduced motion) */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-up {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity var(--t-md) var(--ease-out), transform var(--t-md) var(--ease-out);
+  }
+  .reveal-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 5) Sticky safety banner */
+.safety-banner {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: none;
+  padding: .75rem 1rem;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+  backdrop-filter: saturate(120%) blur(6px);
+}
+.safety-banner--info {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+.safety-banner__text {
+  flex: 1;
+  font-size: .95rem;
+  line-height: 1.35;
+}
+.safety-banner__btn {
+  white-space: nowrap;
+}
+
+/* 6) Footer disclaimer block */
+.footer-disclaimer {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,.06);
+  background: rgba(0,0,0,.03);
+  font-size: .92rem;
+  line-height: 1.45;
+}
+
+/* 7) Cookie / privacy notice (optional use) */
+.cookie-box {
+  position: fixed;
+  inset: auto 1rem 1rem auto;
+  max-width: 360px;
+  padding: .9rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,.08);
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+  z-index: 999;
+  display: none;
+}
+.cookie-box__actions {
+  display: flex;
+  gap: .5rem;
+  margin-top: .75rem;
+}
+
+
+/* Responsive badge & logo sizing */
+:root {
+  --brand-logo-max: clamp(120px, 18vw, 220px);
+  --brand-badge-max: clamp(20px, 6vw, 48px);
+}
+
+/* Common logo selectors */
+img.logo, .logo img, .site-logo, img[alt*="logo" i], img[src*="logo" i] {
+  max-width: var(--brand-logo-max) !important;
+  height: auto !important;
+}
+
+/* Common badge selectors */
+.badge, .brand-badge, img[alt*="badge" i], img[src*="badge" i] {
+  max-width: var(--brand-badge-max) !important;
+  height: auto !important;
+}
+
+/* Header logo alignment for mobile */
+.header .logo, .navbar .logo, .site-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+/* Ensure nav stays tappable and clean */
+.navbar, .site-nav, nav[role="navigation"] {
+  min-height: 56px;
+}
+nav a, .site-nav a, .navbar a {
+  padding: .6rem .8rem;
+  line-height: 1.2;
+}
+
+/* Android/WebKit tweaks: prevent layout shift on load */
+img {
+  image-rendering: -webkit-optimize-contrast;
+}

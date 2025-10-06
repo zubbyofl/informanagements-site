@@ -1,5 +1,5 @@
-// Site-wide config for WhatsApp button
+// site-config.js
 window.IM_CONFIG = {
-  whatsappNumber: "12136425934",
-  whatsappMessage: "Hello Info Managements — I’d like to talk."
+  whatsappNumber: "+12136425934",
+  defaultMessage: "Hello Info Managements — please help me verify something."
 };
