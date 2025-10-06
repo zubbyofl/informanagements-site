@@ -1,25 +1,17 @@
-# Info Managements - WhatsApp Auto‑Open Pack
+FINAL — Info Managements ready-to-deploy package (v2)
+--------------------------------------------------
+Files included:
+- index.html (final homepage: hero, badges, charity, verified reports/testimonials)
+- theme.css
+- logo.svg, badge.svg, favicon.svg, apple-touch-icon.svg, site.webmanifest
+- site-config.js (WhatsApp +12136425934), whatsapp-widget.js, auto-open-whatsapp.js
+- vercel.json and _headers for security
+- README.txt (this file)
 
-This pack updates your site to use WhatsApp **+1 213 642 5934** and auto-opens WhatsApp for visitors (once per session).
+Important: This site explicitly NEVER requests passwords, gift card details, cryptocurrency, or other sensitive payment tokens.
+Deployment:
+1) Upload all files to the root of your GitHub repo (replace older files). 
+2) Commit & push. Vercel will redeploy automatically if connected.
+3) Test: https://www.infomanagements.org
 
-Files:
-- theme.css — same premium style
-- site-config.js — number set to +12136425934
-- whatsapp-widget.js — floating WhatsApp button
-- auto-open-whatsapp.js — redirects to WhatsApp ~0.9s after load (once per session)
-- _headers — extra security headers
-
-## Install
-1) Upload all files to the **root** of your GitHub repo (replace if prompted).
-2) Ensure these tags are present before `</body>` in `index.html`:
-
-```html
-<link rel="stylesheet" href="/theme.css">
-<script src="/site-config.js"></script>
-<script src="/whatsapp-widget.js" defer></script>
-<script src="/auto-open-whatsapp.js" defer></script>
-```
-
-Notes:
-- Auto-open uses a same-tab redirect to avoid popup blockers and only runs **once per browser session**.
-- To disable auto-open later, simply remove the `<script src="/auto-open-whatsapp.js" defer></script>` line.
+If you want PNG exports of the logo at exact sizes (16x16, 32x32, 180x180, 512x512) I can add those too.

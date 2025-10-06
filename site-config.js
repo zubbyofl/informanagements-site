@@ -1,5 +1,1 @@
-// site-config.js
-window.IM_CONFIG = {
-  whatsappNumber: "+12136425934",
-  defaultMessage: "Hello Info Managements — please help me verify something."
-};
+window.IM_CONFIG = { whatsappNumber: "+12136425934", defaultMessage: "Hello — please help me verify a request. I may be dealing with an imposter scam." };

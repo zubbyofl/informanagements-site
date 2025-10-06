@@ -1,6 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="220" height="60">
-  <rect width="100%" height="100%" rx="10" ry="10" fill="#002855"/>
-  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="22" fill="#ffb800">
-    Info Managements
-  </text>
-</svg>
+<?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><rect width="1024" height="1024" rx="160" ry="160" fill="#0B1B2B"/><path d="M512 160l320 96v288c0 232-197 351-320 416-123-65-320-184-320-416V256l320-96z" fill="none" stroke="#FFCC40" stroke-width="48" stroke-linejoin="round"/><rect x="330" y="380" width="70" height="300" rx="8" fill="#FFCC40"/><path fill="#FFCC40" d="M470 680V380h70l92 150 92-150h70v300h-70V542l-92 150-92-150v138h-70z"/></svg>
