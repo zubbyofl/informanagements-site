@@ -125,3 +125,125 @@
 
 html{scroll-behavior:smooth;}
 :target{scroll-margin-top: clamp(60px, 8vh, 96px);} /* offset for sticky headers */
+
+/* Back to top button */
+#im-backtotop {
+  position: fixed;
+  right: clamp(14px, 2vw, 24px);
+  bottom: clamp(70px, 10vh, 110px);
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  font-size: 20px;
+  font-weight: 700;
+  box-shadow: 0 10px 25px rgba(34,197,94,0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s ease;
+  z-index: 998;
+}
+#im-backtotop.show {
+  opacity: 1;
+  visibility: visible;
+}
+#im-backtotop:hover {
+  transform: translateY(-3px);
+  cursor: pointer;
+}
+
+
+/* ---- Badge & size tuning ---- */
+.im-badge{ width: clamp(38px, 6.2vw, 56px); height: auto; display:block; margin: 0 auto; filter: drop-shadow(0 6px 18px rgba(250, 204, 21, .25)); }
+.im-badge-link{ display:inline-block; margin: 0 auto clamp(6px, 1.6vw, 10px); }
+
+/* Compact headline & padding for Payment Safety */
+#payment-safety .im-title{ font-size: clamp(20px, 2.4vw, 30px); }
+#payment-safety .im-panel{ padding: clamp(12px, 2.6vw, 20px); }
+#payment-safety .im-bullets li{ margin-left: .2em; }
+
+/* Buttons a touch smaller for better mobile fit */
+.im-btn{ padding: .72em .95em; border-radius: 12px; }
+
+/* Back-to-top size slightly smaller to avoid overlapping chat/WhatsApp */
+#im-backtotop{ width: 38px; height: 38px; font-size: 18px; bottom: clamp(66px, 9vh, 100px); }
+
+
+/* Charity & Care badge and sizing */
+#charity-care .im-title{ font-size: clamp(20px, 2.2vw, 28px); }
+#charity-care .im-panel{ padding: clamp(12px, 2.6vw, 20px); }
+#charity-care .im-btn{ min-height: 42px; } /* good tap target */
+@media (max-width: 420px){
+  #charity-care .im-btn{ width: 100%; }
+}
+
+/* Nav usability on very small screens: allow wrapping */
+nav ul{ flex-wrap: wrap; row-gap: 6px; }
+
+/* Sticky 'Need help?' ribbon */
+.im-help-ribbon{
+  position: fixed;
+  left: clamp(12px, 2vw, 18px);
+  bottom: clamp(16px, 3.2vw, 24px);
+  display: inline-flex;
+  align-items: center;
+  gap: .55ch;
+  padding: .6em .9em;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #0ea5e9, #22c55e);
+  color: #06240f;
+  text-decoration: none;
+  font-weight: 800;
+  box-shadow: 0 12px 28px rgba(14,165,233,.3);
+  z-index: 997;
+  white-space: nowrap;
+}
+.im-help-ribbon span{ opacity: .85; }
+.im-help-ribbon:hover{ transform: translateY(-1px); }
+@media (max-width: 420px){
+  .im-help-ribbon{ font-size: 14px; padding: .55em .85em; }
+}
+@media (prefers-reduced-motion: reduce){
+  .im-help-ribbon, .im-help-ribbon:hover{ transition: none; transform: none; }
+}
+
+.im-mailto{text-decoration:underline; text-underline-offset: 2px;}
+
+
+/* === IM Badge (global) === */
+.im-badge { 
+  width: clamp(40px, 6vw, 64px); 
+  height: auto; 
+  display: block; 
+  filter: drop-shadow(0 8px 24px rgba(250, 204, 21, 0.45)); /* glow */
+  border-radius: 8px; /* soft edge if JPEG has bg */
+}
+.im-badge-link { display:inline-block; margin: 0 auto clamp(6px, 1.6vw, 12px); }
+
+/* Header brand badge */
+.im-brand { display:flex; align-items:center; gap:.6ch; }
+.im-brand img { width: clamp(24px, 3.8vw, 36px); height:auto; filter: drop-shadow(0 4px 12px rgba(250, 204, 21, .35)); }
+.im-brand-name { font-weight: 900; letter-spacing:.2px; }
+
+/* Section-specific balance */
+#payment-safety .im-title{ font-size: clamp(20px, 2.3vw, 30px); }
+#payment-safety .im-panel{ padding: clamp(12px, 2.6vw, 20px); }
+#charity-care .im-title{ font-size: clamp(20px, 2.1vw, 28px); }
+#charity-care .im-panel{ padding: clamp(12px, 2.6vw, 20px); }
+
+/* Footer badge */
+footer .im-footer-badge { width: clamp(26px, 3vw, 34px); height:auto; vertical-align: middle; filter: drop-shadow(0 3px 10px rgba(250,204,21,.35)); margin-right: 8px; }
+
+
+/* === Inline brand: [IM badge] Infomanagements === */
+.im-brand{ display:inline-flex; align-items:center; gap:.55ch; text-decoration:none; }
+.im-brand img{ width: clamp(18px, 2.6vw, 22px); height:auto; filter: drop-shadow(0 2px 8px rgba(250,204,21,.35)); border-radius: 4px; }
+.im-brand .im-brand-text{ font-weight: 800; letter-spacing:.1px; color: currentColor; }
+.im-brand--section img{ width: clamp(20px, 3vw, 28px); }
+.im-brand--section .im-brand-text{ font-weight: 900; }
+
+/* Tweak section headers so inline brand sits above nicely */
+#payment-safety .im-title, #charity-care .im-title{ margin-top: .2rem; }
+
