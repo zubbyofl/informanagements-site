@@ -1,0 +1,201 @@
+
+/* ============================
+   INFO MANAGEMENTS — GOLD THEME
+   Readable, high-contrast dark theme + shiny gold buttons
+   WhatsApp FAB is visible on all pages
+   Badge appears on every section AND on all action buttons
+   ============================ */
+
+/* ---- Theme variables (easy to tweak) ---- */
+:root{
+  --im-bg-1:#0B1220;
+  --im-bg-2:#0E1A33;
+  --im-bg-3:#142246;
+  --im-text:#EAF2FF;
+  --im-muted:#B9C6E2;
+  --im-gold-1:#FFD76A;
+  --im-gold-2:#FFC52E;
+  --im-gold-3:#B8860B;
+  --im-green:#25D366;
+  --im-focus-outline: 3px solid rgba(255,215,106,.6);
+  /* EXACT SHIELD BADGE you provided (JPEG) */
+  --im-badge-url: url('assets/im-shield-gold.jpeg');
+}
+
+/* ---- Page background & global readability ---- */
+html,body{height:100%;}
+body{
+  margin:0;
+  color:var(--im-text);
+  background:
+    radial-gradient(1200px 700px at 20% 0%, rgba(20,34,70,.65), transparent 60%),
+    radial-gradient(1400px 900px at 100% 20%, rgba(14,26,51,.8), transparent 60%),
+    linear-gradient(180deg, var(--im-bg-1), var(--im-bg-2) 40%, var(--im-bg-3));
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a{color:var(--im-gold-1); text-decoration: none;}
+a:hover, a:focus{ text-decoration: underline; outline: none;}
+
+h1,h2,h3,h4{color:var(--im-text); letter-spacing:.2px; margin-top:0;}
+p{color:var(--im-muted); line-height:1.6;}
+
+.contrast-guard{
+  background: linear-gradient( to bottom, rgba(11,18,32,.72), rgba(11,18,32,.55) 50%, rgba(11,18,32,.0) );
+  border-radius: 14px;
+  padding: clamp(12px, 2vw, 22px);
+  box-shadow: 0 10px 32px rgba(0,0,0,.35);
+}
+
+/* ---- GOLD button style with shiny ✨ effect ---- */
+.btn{
+  --padY: 14px; --padX: 22px;
+  display:inline-flex; align-items:center; gap:10px;
+  padding: var(--padY) var(--padX);
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing:.2px;
+  text-align:center;
+  color:#192033;
+  background: linear-gradient(180deg, var(--im-gold-1), var(--im-gold-2));
+  box-shadow:
+    0 2px 0 0 rgba(0,0,0,.35) inset,
+    0 10px 24px rgba(255,197,46,.25),
+    0 0 0 2px rgba(184,134,11,.35) inset;
+  position: relative;
+  transition: transform .06s ease, box-shadow .2s ease;
+}
+.btn:focus-visible{ outline: var(--im-focus-outline); outline-offset: 3px; }
+.btn:hover{ transform: translateY(-1px); box-shadow:
+    0 2px 0 0 rgba(0,0,0,.35) inset,
+    0 16px 38px rgba(255,197,46,.35),
+    0 0 0 2px rgba(184,134,11,.45) inset;
+}
+.btn:active{ transform: translateY(0); }
+
+/* ✨ Shimmer sweep across the button */
+.btn::after{
+  content:""; pointer-events:none;
+  position:absolute; inset:0;
+  background:
+    linear-gradient(120deg, transparent 0%, rgba(255,255,255,.28) 20%, rgba(255,255,255,.0) 40%);
+  mix-blend-mode: screen;
+  background-size: 250% 100%;
+  background-position: -120% 0;
+  border-radius: inherit;
+  animation: imShimmer 3.8s ease-in-out infinite;
+}
+@keyframes imShimmer{
+  15%{ background-position: -120% 0; }
+  45%{ background-position: 120% 0; }
+  100%{ background-position: 120% 0; }
+}
+
+/* 🛡️ Exact IM shield badge on EVERY action button */
+.btn::before{
+  content:"";
+  width:1.25em; height:1.25em;
+  background-image: var(--im-badge-url);
+  background-size: cover; background-repeat:no-repeat;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,.35));
+  margin-inline-end: 6px;
+}
+
+.btn--account, .btn--vip, .btn--primary{
+  box-shadow:
+    0 2px 0 0 rgba(0,0,0,.35) inset,
+    0 0 0 2px rgba(184,134,11,.45) inset,
+    0 18px 44px rgba(255,197,46,.45),
+    0 0 24px rgba(255,197,46,.35);
+}
+
+/* ---- Sections watermark with the exact badge ---- */
+.section{
+  position: relative;
+  padding: clamp(32px, 5vw, 80px)  min(5vw, 36px);
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.section::after{
+  content:"";
+  position: absolute;
+  right: clamp(12px, 3vw, 32px);
+  bottom: clamp(12px, 3vw, 28px);
+  width: clamp(56px, 11vw, 120px);
+  aspect-ratio: 1 / 1;
+  background-image: var(--im-badge-url);
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity:.22;
+  filter: drop-shadow(0 2px 10px rgba(0,0,0,.35));
+  pointer-events: none;
+}
+
+/* ---- Header / Footer ---- */
+.header,.footer{
+  background: rgba(8,12,20,.55);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+
+.header .brand{
+  display:flex; align-items:center; gap:10px; font-weight:800;
+}
+.header .brand .logo{
+  width:28px; height:28px; background-image:var(--im-badge-url); background-size:cover; display:inline-block;
+}
+
+/* ---- WhatsApp floating button (visible on all pages) ---- */
+.whatsapp-fab{
+  position: fixed;
+  right: clamp(14px, 3.4vw, 28px);
+  bottom: clamp(16px, 3.4vw, 28px);
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: var(--im-green);
+  display: grid; place-items: center;
+  color: #0a0a0a;
+  box-shadow: 0 10px 30px rgba(37,211,102,.45), 0 0 0 3px rgba(0,0,0,.15) inset;
+  z-index: 9999;
+  text-decoration: none;
+}
+.whatsapp-fab svg{ width: 28px; height: 28px; fill:#fff; }
+
+.whatsapp-fab::after{
+  content:""; position:absolute; inset:-8px;
+  border-radius: inherit;
+  box-shadow: 0 0 0 0 rgba(37,211,102,.45);
+  animation: imPulse 2.6s ease-out infinite;
+}
+@keyframes imPulse{
+  0%{ box-shadow:0 0 0 0 rgba(37,211,102,.45); }
+  70%{ box-shadow:0 0 0 24px rgba(37,211,102,0); }
+  100%{ box-shadow:0 0 0 0 rgba(37,211,102,0); }
+}
+
+/* ---- Nav & Cards ---- */
+.nav a{ color: var(--im-text); opacity:.9; padding: 8px 10px; border-radius: 8px; }
+.nav a[aria-current="page"]{ color: var(--im-gold-1); background: rgba(255,255,255,.05); text-decoration:none; }
+.nav a:focus-visible{ outline: var(--im-focus-outline); }
+
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 16px;
+  box-shadow: 0 8px 28px rgba(0,0,0,.35);
+  padding: clamp(18px, 2.2vw, 26px);
+  color: var(--im-text);
+}
+
+@media (max-width: 520px){
+  .btn{ --padY:12px; --padX:18px; font-size: 0.98rem; }
+  .section::after{ opacity:.25; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation: none !important; transition: none !important; }
+}
