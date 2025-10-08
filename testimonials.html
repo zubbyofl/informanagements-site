@@ -1,68 +1,90 @@
-<!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Info Managements</title>
-<link rel="preload" as="image" href="/assets/logo.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon-180.png">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
 
-  <link rel="canonical" href="https://www.infomanagements.org/">
-  <meta property="og:url" content="https://www.infomanagements.org/">
-  <meta property="og:title" content="Info Managements — Secure, caring management for talent &amp; fans">
-  <meta property="og:description" content="We listen with empathy, act with integrity, and support your goals with care. If it matters to you, it matters to us.">
-  <meta property="og:image" content="https://www.infomanagements.org/assets/og-cover.png">
-  <meta name="twitter:card" content="summary_large_image">
+<!DOCTYPE html>
 
-<script>function toggleMenu(){document.getElementById('menu').classList.toggle('open');}</script>
-</head><body>
-<header class="header"><div class="container nav">
-  <a class="brand" href="index.html"><img src="/assets/logo.png" alt="IM"><span>Info Managements</span></a>
-  <button class="mobile-toggle" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
-  <nav id="menu" class="menu">
-    <a href="index.html">Home</a>
-    <a href="team.html">Team</a>
-    <a href="testimonials.html">Testimonials</a>
-    <a href="join-vip.html">Join VIP</a>
-    <a href="bookings.html">Bookings</a>
-    <a href="fraud-help.html">Fraud Help</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-    <a href="charity.html">Charity</a>
-  </nav>
-</div></header>
-
-<div class="band"><div class="container inner">
-  <div class="badge"><img src="/assets/logo.png" alt="IM"><span>Infomanagements</span></div>
-  <a href="index.html">Home</a>
-  <a href="join-vip.html">Membership &amp; VIP</a>
-  <a href="bookings.html">Bookings</a>
-  <a href="fraud-help.html">Fraud Help</a>
-  <a href="about.html">About</a>
-  <a href="contact.html">Contact</a>
-  <a href="charity.html">Charity</a>
-</div></div>
-<section class="section"><div class="container"><h2>Testimonials</h2><p class="small">Stories from real clients and fans.</p></div></section>
-<footer class="footer"><div class="container cols">
-  <div>
-    <div class="brandline"><img src="/assets/logo.png" alt="IM"><strong>Infomanagements</strong></div>
-    <p>A professional talent &amp; project management agency focused on safe, verified connections.</p>
-    <p><strong>WhatsApp:</strong> +1 (213) 642-5934</p>
+<html lang="en">
+<head>
+<link href="/assets/theme.css" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Testimonials • Info Managements</title>
+<link href="https://infomanagements.org/testimonials" rel="canonical"/>
+<meta content="Testimonials • Info Managements" property="og:title"/>
+<meta content="Real stories from people who felt heard, supported, and understood." property="og:description"/>
+<link href="/assets/ui-touchups.css" rel="stylesheet"/><meta content="summary_large_image" name="twitter:card"/></head>
+<body>
+<!-- Injected Brand Header -->
+<header style="text-align:center; padding:20px 16px;">
+<img alt="Info Managements" onerror="this.src='/assets/logo.svg';" src="/assets/logo.png" style="height:80px; border-radius:8px;"/>
+<a class="nav-link" href="/#charity">Charity</a></header>
+<!-- Nav injected globally -->
+<section class="hero-section">
+<h1>What People Say</h1>
+<p>Real stories from people who felt heard, supported, and understood.</p>
+<div class="cta-row">
+<a class="cta-button" data-mailto="team@infomanagements.org" data-subject="Consultation Request" href="#contact">Talk With Our Team</a>
+<a class="cta-button" href="mailto:membership@infomanagements.org?subject=Let%27s%20Talk&amp;body=Hello%2C%20I%27d%20love%20to%20learn%20more%20about%20VIP%20membership.">Get VIP Access</a>
+</div>
+</section>
+<section class="section">
+<div class="testimonial"><p><strong>“They truly listened.”</strong> I finally felt like someone understood what I meant — and they acted on it.</p></div>
+<div class="testimonial"><p><strong>“Zero pressure, all care.”</strong> They explained everything clearly and made it easy to decide.</p></div>
+<div class="testimonial"><p><strong>“Professional &amp; warm.”</strong> I was skeptical at first, but their honesty and speed won me over.</p></div>
+<div class="testimonial"><p><strong>“I felt safe.”</strong> The privacy note under the form really reassured me. They handled my info with respect.</p></div>
+</section>
+<section class="section">
+<div class="contact-panel">
+<h2>Ready to Share Your Story?</h2>
+<form data-netlify="true" data-netlify-honeypot="bot-field" method="POST" name="testimonials">
+<input name="form-name" type="hidden" value="testimonials"/>
+<p class="hidden" style="display:none;">
+<label>Don’t fill this out if you're human: <input name="bot-field"/></label>
+</p>
+<p><label>Name (optional)<br/><input name="name" type="text"/></label></p>
+<p><label>Your Experience<br/><textarea name="message" required="" rows="6"></textarea></label></p>
+<p><button type="submit">Share Feedback</button></p>
+<p class="small">Your privacy is safe with us. We only use this to improve and never share without permission.</p>
+</form>
+<!-- Injected Thank You UI -->
+<div id="thankyou-message" style="display:none; text-align:center; margin-top:20px;">
+<h3 style="color:#002855;">💛 Thank you for reaching out!</h3>
+<p>We’ve received your message and can’t wait to connect. Your words matter — we’ll respond with care.</p>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Attach handler to all Netlify forms on page
+  document.querySelectorAll("form[data-netlify='true']").forEach(function(form){
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      fetch("/", { method: "POST", body: data })
+        .then(function() {
+          form.style.display = "none";
+          var ty = document.getElementById("thankyou-message");
+          if(ty){ ty.style.display = "block"; }
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        })
+        .catch(function(){ alert("There was an issue sending your message. Please try again."); });
+    });
+  });
+});
+</script>
+</div>
+</section>
+<script src="/assets/site-config.js"></script>
+<script src="/assets/whatsapp-widget.js"></script>
+<div class="safety-banner safety-banner--info" data-safety-banner="" style="background: linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,.85));">
+<strong>Safety notice:</strong>
+<div class="safety-banner__text">
+    We keep all coordination strictly on official channels. If you receive unusual payment or verification requests, contact us directly.
   </div>
-  <div><h4>Email</h4><ul>
-    <li>Membership &amp; VIP — <a href="mailto:membership@infomanagements.org">membership@infomanagements.org</a></li>
-    <li>Bookings — <a href="mailto:bookings@infomanagements.org">bookings@infomanagements.org</a></li>
-    <li>Fraud Dept — <a href="mailto:frauddepartment@infomanagements.org">frauddepartment@infomanagements.org</a></li>
-    <li>General — <a href="mailto:contact@infomanagements.org">contact@infomanagements.org</a></li>
-  </ul></div>
-  <div><h4>Safety</h4>
-    <p class="small"><strong>Payments Safety:</strong> Payments are only accepted after approval from the Head of Management Board and via an official invoice from @infomanagements.org. We never request payments without approval or upon approval!</p>
-    <p class="small">If you don’t receive an approved invoice from our domain, it isn’t from us.</p>
-  </div>
-</div></footer>
-<a class="wa-float" href="https://wa.me/12136425934" aria-label="WhatsApp">
-  <span class="label">Chat on WhatsApp</span>
-  <img src="/assets/whatsapp.png" alt="WhatsApp">
-</a>
-</body></html>
+<a class="button safety-banner__btn" data-body="Please include screenshots, usernames, and a brief summary." data-mailto="fraud@infomanagements.org" data-subject="Report a suspicious message">Report Issue</a>
+<button aria-label="Dismiss safety notice" class="button" data-close-safety="">Close</button>
+</div>
+<section class="footer-disclaimer">
+<strong>Disclaimer &amp; Safety:</strong>
+  This site provides information and bookings coordination only. Financial transactions occur through approved, official methods shared by our team.
+  If anything feels off, email <a href="mailto:fraud@infomanagements.org">fraud@infomanagements.org</a> and copy <a href="mailto:privacy@infomanagements.org">privacy@infomanagements.org</a>.
+  Use of this site implies agreement with our <a href="/privacy.html">Privacy Policy</a> and <a href="/fraud.html">Safety Guidance</a>.
+</section>
+<script defer="True" src="/assets/site-enhancements.js"></script><footer><a href="/charity.html">Charity &amp; Community</a></footer></body>
+</html>
